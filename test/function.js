@@ -46,16 +46,26 @@ describe('Test function', () => {
     done();
   });
   it('Should set correct case', (done) => {
-    const history1 = ['R'];
-    const history2 = ['R','B'];
-    const history3 = ['R','R'];
-    const history4 = ['B','R'];
-    const history5 = ['B','B'];
-    setCase(history1).should.equal(['R', 'B', '-', '-']);
-    setCase(history2).should.equal(['B', 'R', 'R', 'B']);
-    setCase(history3).should.equal(['R', 'B', 'R', 'B']);
-    setCase(history4).should.equal(['R', 'B', 'B', 'R']);
-    setCase(history5).should.equal(['B', 'R', 'B', 'R']);
+    const history1 = [];
+    const history2 = ['R'];
+    const history3 = ['R'];
+    const history4 = ['B'];
+    const history5 = ['B'];
+    setCase(history1, 'R').map((data, index) => {
+      data.should.equal(['R', 'B', '-', '-'][index]);
+    });
+    setCase(history2,'B').map((data, index) => {
+      data.should.equal(['B', 'R', 'R', 'B'][index]);
+    });
+    setCase(history3,'R').map((data, index) => {
+      data.should.equal(['R', 'B', 'R', 'B'][index]);
+    });
+    setCase(history4,'R').map((data, index) => {
+      data.should.equal(['R', 'B', 'B', 'R'][index]);
+    });
+    setCase(history5,'B').map((data, index) => {
+      data.should.equal(['B', 'R', 'B', 'R'][index]);
+    });
     done();
   });
 });
