@@ -4,6 +4,7 @@ import Header from './components/Header.js';
 import Button from './components/Button.js';
 import Table from './components/Table.js';
 import {case1, case2, case3, case4, setCase} from './utils/calculate.js';
+require('!style!css!sass!./sass/main.scss');
 class App extends Component {
   constructor(props){
     super(props);
@@ -22,33 +23,34 @@ class App extends Component {
       history: [...this.state.history, data],
       currentData: data,
       correctCase: this.checkAnswer(data, this.state.rounds[0]),
-      rounds: [ref]
+      rounds: this.addRound(ref, this.checkAnswer(data, this.state.rounds[0]), this.state.rounds)
     });
   }
+  addRound(ref, correct, rounds) {
+    rounds[0] = ref;
+    rounds.push(correct);
+    return rounds;
+  }
   checkAnswer(data, cases) {
-    return cases.reduce((prev, current, index) => {
-      if (current === data) {
-        prev.push(index+1);
-      }
-      return prev;
-    },[]);
+    if(cases[0] === '-') {
+        return [];
+    } else {
+      return cases.reduce((prev, current) => {
+        if (current === data) {
+          prev.push('/');
+        } else {
+          prev.push('X');
+        }
+        return prev;
+      },[]);
+    }
   }
   render(){
     console.log(`history ${this.state.history}`);
-    console.log(`correct ${this.state.correctCase}`);
     return (
       <div className='container'>
         <Header currentData={this.state.currentData} />
-        <span>next round</span>
         <Table rounds={this.state.rounds} currentData={this.state.currentData}/>
-        <span>case correct: </span>
-        {
-          this.state.correctCase.map((data) => {
-            return (
-              <span key={data}>{data},</span>
-            );
-          })
-        }
         <Button setData={this.setData} />
       </div>
     );

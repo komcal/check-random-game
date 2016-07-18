@@ -3,15 +3,24 @@ module.exports = {
     './src/index.js'
   ],
   output: {
-    path: __dirname,
+    path: './',
     publicPath: '/',
     filename: 'bundle.js'
   },
   module: {
-    loaders: [{
-      exclude: /node_nodules/,
-      loader: 'babel'
-    }]
+    loaders: [
+      {
+        test: /\.scss$/,
+        loaders: ['style', 'css', 'sass']
+      },
+      {
+        exclude: /node_nodules/,
+        loader: 'babel'
+      }
+    ]
+  },
+  sassLoader: {
+    includePaths: './src/sass'
   },
   resolve: {
     extensions: ['','.js','.jsx']

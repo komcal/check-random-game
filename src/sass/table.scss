@@ -1,0 +1,26 @@
+table {
+  border-collapse: collapse;
+  margin: 20px auto;
+  thead {
+    background-color: #d7d7d7;
+    color: #474747;
+    .red {
+      background-color: #ff1c1c;
+    }
+    .blue {
+      background-color: #3884d4;
+    }
+  }
+  td {
+    padding: 5px 20px;
+  }
+  .correct {
+    background-color: #78e94e;
+  }
+  .wrong {
+    background-color: #c83232;
+  }
+}
+table, tr, td {
+    border: 1px solid white;
+}

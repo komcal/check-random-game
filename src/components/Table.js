@@ -10,15 +10,30 @@ export default class Header extends Component {
           {
             rounds.map((round, index) => {
               return (
-                <tr key={index}>
-                  {
-                    round.map((data,index) => {
-                      return (
-                        <td key={index+data}>{data}</td>
-                      );
-                    })
-                  }
-                </tr>
+                (index === 0) ?
+                <thead>
+                  <tr key={index}>
+                    {
+                      round.map((data,index) => {
+                        return (
+                          <td key={index+data} className={(data === 'R')? 'red':'blue'}>{data}</td>
+                        );
+                      })
+                    }
+                  </tr>
+                </thead>
+                :
+                <tbody>
+                  <tr key={index}>
+                    {
+                      round.map((data,index) => {
+                        return (
+                          <td key={index+data} className={(data === '/')? 'correct':'wrong'}>{data}</td>
+                        );
+                      })
+                    }
+                  </tr>
+                </tbody>
               );
             })
           }

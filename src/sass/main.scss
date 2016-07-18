@@ -1,0 +1,18 @@
+@import './table';
+@import './button';
+@import './header';
+body {
+  background-color: #0c7910
+}
+div {
+  color: white
+}
+.container {
+  max-width: 500px;
+  background-color: #168117;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
