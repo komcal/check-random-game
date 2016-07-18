@@ -1,6 +1,3 @@
-# todolist-react
-######run:
-```
-webpack
-npm start
-```
+# check-random-game
+
+this repo use for cheat my game
