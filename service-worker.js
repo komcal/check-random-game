@@ -12,6 +12,6 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(self.clients.claim());
 });
 
-toolbox.router.get('./index.html', toolbox.fastest);
-toolbox.router.get('./', toolbox.fastest);
-toolbox.router.get('./bundle.js', toolbox.fastest);
+toolbox.router.get('/index.html', toolbox.fastest);
+toolbox.router.get('/', toolbox.fastest);
+toolbox.router.get('/bundle.js', toolbox.fastest);
