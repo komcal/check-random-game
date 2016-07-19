@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "react": "^0.14.7",
-    "react-dom": "^0.14.7"
+    "react-dom": "^0.14.7",
+    "sw-toolbox": "^3.2.1"
   }
 }
